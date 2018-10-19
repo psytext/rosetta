@@ -1,0 +1,11 @@
+---
+name:  modmed
+title: Moderated mediation
+jrs:   '1.1'
+
+items:
+    - name:  text
+      title: Moderated mediation
+      type:  Preformatted
+
+...

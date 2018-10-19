@@ -1,0 +1,8 @@
+exportPattern("^[[:alpha:]]+")
+
+
+
+
+export(modmed)
+export(modmedClass)
+export(modmedOptions)
