@@ -6,11 +6,12 @@ install.packages('jmvtools', repos=c('https://repo.jamovi.org', 'https://cran.r-
 
 
 jmvtools::check()
+jmvtools::check(home='C:\\Program Files\\jamovi 0.9.2.8\\bin')
 
 ## jamovi found at /Applications/jamovi.app
 
 
-jmvtools::install()        # adds a module to jamovi 
+jmvtools::install()        # adds a module to jamovi
 
 # install.packages("jmvcore")
 # library(jmvcore)
@@ -29,6 +30,7 @@ jmvtools::install()        # adds a module to jamovi
 # ************************
 
 setwd("~/Documents/Open Universiteit/Onderzoek/Methodologie/Jamovi")
+setwd("D:/R Git projects/rosetta")
 
 jmvtools::create('semMed')
 

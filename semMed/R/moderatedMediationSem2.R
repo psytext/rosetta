@@ -12,6 +12,7 @@
 #' @param cyvars covariates for dependent variable
 #' @param nboot number of bootstrap samples
 #'
+#' @import dplyr
 #' @return moderatedMediationSem object
 #' @export
 #'
@@ -155,7 +156,7 @@ moderatedMediationSem <- function(data = NULL,
 #' print method of object of class moderatedMediationSem
 #'
 #' @param x object of class moderatedMediationSem
-#' @param ...
+#' @param ... additional pars
 #' @param digits  number of digits
 #'
 #' @export
@@ -194,7 +195,7 @@ print.moderatedMediationSem <- function(x, ..., digits=2) {
 
 #' Makes simple slop plots of moderatedMediationSem object
 #'
-#' @param x
+#' @param x   object moderatedMediationSem
 #' @param ... optional
 #' @param digits number of digits
 #'
