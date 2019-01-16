@@ -62,6 +62,9 @@ fanova(dat=mtcars, y='mpg', between=c('vs', 'am'), plot=TRUE);
 ### Ancova
 fanova(dat=mtcars, y='mpg', between=c('vs', 'am'), covar='hp');
 
+### Don't run these examples to not take too much time during testing
+### for CRAN
+\dontrun{
 ### Repeated measures anova; first generate datafile
 dat <- mtcars[, c('am', 'drat', 'wt')];
 names(dat) <- c('factor', 't0_dependentVar' ,'t1_dependentVar');
@@ -70,7 +73,7 @@ dat$factor <- factor(dat$factor);
 ### Then do the repeated measures anova
 fanova(dat, y=c('t0_dependentVar' ,'t1_dependentVar'),
        between='factor', plot=TRUE);
-
+}
 
 }
 \seealso{
