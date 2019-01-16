@@ -30,4 +30,4 @@ Imports: car (>= 3.0.2),
          rio (>= 0.5.10),
          ufs (>= 0.1.0),
          userfriendlyscience (>= 0.7.1)
-
+         
