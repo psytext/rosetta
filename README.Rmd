@@ -16,36 +16,4 @@ knitr::opts_chunk$set(
 ```
 # rosetta
 
-The goal of rosetta is to ...
-
-## Installation
-
-You can install the released version of rosetta from [CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("rosetta")
-```
-
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-```{r example}
-## basic example code
-```
-
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
+Rosetta Stats is a statistics chrestomathy, conceptually based on Rosetta Code; this is its R companion package. Rosetta Stats is meant to illustrate how common analyses can be conducted in a variety of statistical software packages. It was founded mainly to facilitate using SPSS and R in parallel or to facilitate switching from SPSS to R. It is geared towards application of statistics to psychological science.

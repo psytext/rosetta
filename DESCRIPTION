@@ -8,9 +8,8 @@ Authors@R:
            email = "gjalt-jorn@behaviorchange.eu")
 Description: This package is the companion to the Rosetta
   Stats website, which aims to provide an overview of similar
-  functions in different statistical packages. Specifically,
-  this package contains a number of functions that work similarly
-  to other SPSS function.
+  functions in different statistical packages. This facilitates
+  'software-agnostic' teaching of statistics.
 Maintainer: Gjalt-Jorn Peters <gjalt-jorn@userfriendlyscience.com>
 License: GPL (>= 3)
 URL: https://rosettastats.com
