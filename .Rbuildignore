@@ -2,3 +2,4 @@
 ^README\.Rmd$
 ^rosetta\.Rproj$
 ^\.Rproj\.user$
+^docs\.*$
