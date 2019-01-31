@@ -1,5 +1,5 @@
 Package: rosetta
-Title: Functions for Parallel Use of Statistical Packages in Teaching
+Title: Parallel Use of Statistical Packages in Teaching
 Version: 0.0.1
 Authors@R: 
     person(given = "Gjalt-Jorn",
@@ -8,11 +8,11 @@ Authors@R:
            email = "gjalt-jorn@userfriendlyscience.com")
 Description: When teaching statistics, it can often be desirable to
   uncouple the content from specific software packages. To easy such
-  efforts, the Rosetta Stats allows comparing analyses in different
-  packages. This package is the companion to the Rosetta
-  Stats website, aiming to provide functions that produce output that is
-  similar to output from other statistical packages, thereby  facilitating
-  'software-agnostic' teaching of statistics.
+  efforts, the Rosetta Stats website (<https://rosettastats.com>) allows
+  comparing analyses in different packages. This package is the companion
+  to the Rosetta Stats website, aiming to provide functions that produce
+  output that is similar to output from other statistical packages, thereby
+  facilitating 'software-agnostic' teaching of statistics.
 Maintainer: Gjalt-Jorn Peters <gjalt-jorn@userfriendlyscience.com>
 License: GPL (>= 3)
 URL: https://rosettastats.com
