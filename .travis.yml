@@ -1,18 +1,44 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
-language: R
+#language: R
 # sudo: false
-sudo: required
-cache: packages
+#sudo: required
+#cache: packages
 
 ### From https://github.com/eddelbuettel/rcppgsl/blob/master/.travis.yml
 ### (Edited)
 
+#dist: trusty
+
+#before_install:
+#  - curl -OLs https://eddelbuettel.github.io/r-travis/run.sh && chmod 0755 run.sh
+#  - ./run.sh bootstrap
+
+#install:
+#  - ./run.sh install_aptget r-cran-rcpp libgsl0-dev
+
+### From `ufs`
+language: r
+r:
+  - release
+  - devel
+
+sudo: true
 dist: trusty
+cache: packages
+warnings_are_errors: true
 
-before_install:
-  - curl -OLs https://eddelbuettel.github.io/r-travis/run.sh && chmod 0755 run.sh
-  - ./run.sh bootstrap
+repos:
+  CRAN: https://cloud.r-project.org
+  ropensci: http://packages.ropensci.org
 
-install:
-  - ./run.sh install_aptget r-cran-rcpp libgsl0-dev
+env:
+  global:
+    - R_MAX_NUM_DLLS=999
+    - _R_CHECK_FORCE_SUGGESTS_=true
+    - _R_CHECK_CRAN_INCOMING_=true
+
+packages:
+- libcurl4-openssl-dev
+- libxml2-dev
+- libgsl0-dev
