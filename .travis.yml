@@ -14,8 +14,8 @@ before_install:
   - curl -OLs https://eddelbuettel.github.io/r-travis/run.sh && chmod 0755 run.sh
   - ./run.sh bootstrap
 
-#install:
-#  - ./run.sh install_aptget r-cran-rcpp libgsl0-dev
+install:
+  - ./run.sh install_aptget r-cran-rcpp libgsl0-dev
 
 ### From `ufs`
 language: r
