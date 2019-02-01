@@ -1,29 +1,3 @@
-###########################################################
-###########################################################
-###
-### Function to show frequencies in a manner similar to
-### the way SPSS' "FREQUENCIES" command does.
-###
-### File created by Gjalt-Jorn Peters. Questions? You can
-### contact me through http://behaviorchange.eu
-###
-### This file is licensed under Creative Commons BY-SA 3.0
-### (Attribution-ShareAlike, which means that you can
-### freely use and distribute this file, and you're
-### allowed to alter it as long as you release the edited
-### version using the same license (i.e. again freely
-### available). This license is used to promote Open
-### Science and Full Disclosure. For the complete
-### license, see
-### http://creativecommons.org/licenses/by-sa/3.0/deed.en_US
-### For more information about Full Disclosure, see
-### http://sciencerep.org/fulldisclosure
-###
-###########################################################
-###########################################################
-
-
-
 #' Frequency tables
 #'
 #' Function to show frequencies in a manner similar to what SPSS' "FREQUENCIES"
