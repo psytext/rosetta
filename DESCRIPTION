@@ -1,11 +1,20 @@
 Package: rosetta
 Title: Parallel Use of Statistical Packages in Teaching
 Version: 0.0.1
-Authors@R: 
+Authors@R: c(
     person(given = "Gjalt-Jorn",
            family = "Peters",
            role = c("aut", "cre"),
-           email = "gjalt-jorn@userfriendlyscience.com")
+           email = "gjalt-jorn@opens.science"),
+    person(given = "Ron",
+           family = "Pat-El",
+           role = c("ctb"),
+           email = "ron.pat-el@ou.nl"),
+    person(given = "Peter",
+           family = "Verboon",
+           role = c("ctb"),
+           email = "peters.verboon@ou.nl")
+  )
 Description: When teaching statistics, it can often be desirable to
   uncouple the content from specific software packages. To easy such
   efforts, the Rosetta Stats website (<https://rosettastats.com>) allows
@@ -15,7 +24,7 @@ Description: When teaching statistics, it can often be desirable to
   facilitating 'software-agnostic' teaching of statistics.
 Maintainer: Gjalt-Jorn Peters <gjalt-jorn@userfriendlyscience.com>
 License: GPL (>= 3)
-URL: https://rosettastats.com
+URL: https://rosetta.opens.science
 BugReports: https://github.com/psytext/rosetta
 Encoding: UTF-8
 LazyData: true
