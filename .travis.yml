@@ -1,3 +1,10 @@
+### From `ufs`
+language: r
+r:
+  - release
+  - devel
+
+
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 #language: R
@@ -17,15 +24,10 @@ before_install:
 install:
   - ./run.sh install_aptget r-cran-rcpp libgsl0-dev
 
-### From `ufs`
-language: r
-r:
-  - release
-  - devel
 
 sudo: true
 dist: trusty
-cache: packages
+#cache: packages
 warnings_are_errors: true
 
 repos:
@@ -42,3 +44,4 @@ packages:
 - libcurl4-openssl-dev
 - libxml2-dev
 - libgsl0-dev
+

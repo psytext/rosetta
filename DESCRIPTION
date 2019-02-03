@@ -22,7 +22,7 @@ Description: When teaching statistics, it can often be desirable to
   to the Rosetta Stats website, aiming to provide functions that produce
   output that is similar to output from other statistical packages, thereby
   facilitating 'software-agnostic' teaching of statistics.
-Maintainer: Gjalt-Jorn Peters <gjalt-jorn@userfriendlyscience.com>
+Maintainer: Gjalt-Jorn Peters <gjalt-jorn@opens.science>
 License: GPL (>= 3)
 URL: https://rosetta.opens.science
 BugReports: https://github.com/psytext/rosetta
