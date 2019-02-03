@@ -24,6 +24,11 @@ before_install:
 install:
   - ./run.sh install_aptget r-cran-rcpp libgsl0-dev
 
+addons:
+  apt:
+    packages:
+    - libgsl0-dev
+    - gsl-bin
 
 sudo: true
 dist: trusty
@@ -40,8 +45,8 @@ env:
     - _R_CHECK_FORCE_SUGGESTS_=true
     - _R_CHECK_CRAN_INCOMING_=true
 
-packages:
-- libcurl4-openssl-dev
-- libxml2-dev
-- libgsl0-dev
+#packages:
+#- libcurl4-openssl-dev
+#- libxml2-dev
+#- libgsl0-dev
 
