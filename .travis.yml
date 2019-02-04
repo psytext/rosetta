@@ -1,16 +1,16 @@
-### From `ufs`
-language: r
-r:
-  - release
-  - devel
-
-
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
-
 #language: R
 # sudo: false
 #sudo: required
 #cache: packages
+
+### From `ufs`
+sudo: true
+dist: trusty
+language: r
+r:
+  - release
+  - devel
 
 ### From https://github.com/eddelbuettel/rcppgsl/blob/master/.travis.yml
 ### (Edited)
@@ -24,14 +24,12 @@ before_install:
 install:
   - ./run.sh install_aptget r-cran-rcpp libgsl0-dev
 
-addons:
-  apt:
-    packages:
-    - libgsl0-dev
-    - gsl-bin
+#addons:
+#  apt:
+#    packages:
+#    - libgsl0-dev
+#    - gsl-bin
 
-sudo: true
-dist: trusty
 #cache: packages
 warnings_are_errors: true
 
