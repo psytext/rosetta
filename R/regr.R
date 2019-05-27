@@ -77,11 +77,11 @@ regr <- function(formula, data=NULL, conf.level=.95, digits=2,
   if (is.null(dat)) {
     ### Extract variables from formula
     res$intermediate$variables <-
-      as.character(as.list(attr(terms(formula), 'variables'))[-1]);
+      as.character(as.list(attr(stats::terms(formula), 'variables'))[-1]);
 
     ### Store variablesnames only for naming in raw dataframe
     res$intermediate$variables_namesOnly <- unlist(
-      lapply(strsplit(res$intermediate$variables, "\\$"), tail, 1));
+      lapply(strsplit(res$intermediate$variables, "\\$"), utils::tail, 1));
 
     ### Store variables in a dataframe
     res$intermediate$dat.raw <- list();
@@ -127,7 +127,7 @@ regr <- function(formula, data=NULL, conf.level=.95, digits=2,
   res$intermediate$n <- n <- res$intermediate$lm.raw$df.residual + k + 1;
   res$intermediate$rsq.se <- sqrt((4*rsq*(1-rsq)^2*(n-k-1)^2)/
                                   ((n^2-1)*(3+n)));
-  res$intermediate$rsq.t.crit <- qt(p=1-(1-conf.level)/2, df=n-k-1);
+  res$intermediate$rsq.t.crit <- stats::qt(p=1-(1-conf.level)/2, df=n-k-1);
   res$output$rsq.ci.olkinfinn <- c(res$intermediate$rsq -
                                    res$intermediate$rsq.t.crit *
                                    res$intermediate$rsq.se,
@@ -156,15 +156,15 @@ regr <- function(formula, data=NULL, conf.level=.95, digits=2,
 
   ### Run confint on lm object
   res$intermediate$confint.raw <-
-    confint(res$intermediate$lm.raw, level=conf.level);
+    stats::confint(res$intermediate$lm.raw, level=conf.level);
   res$intermediate$confint.scaled <-
-    confint(res$intermediate$lm.scaled, level=conf.level);
+    stats::confint(res$intermediate$lm.scaled, level=conf.level);
 
   ### Run lm.influence on lm object
   res$intermediate$lm.influence.raw <-
-    lm.influence(res$intermediate$lm.raw);
+    stats::lm.influence(res$intermediate$lm.raw);
   res$intermediate$lm.influence.scaled <-
-    lm.influence(res$intermediate$lm.scaled);
+    stats::lm.influence(res$intermediate$lm.scaled);
 
   ### Get variance inflation factors and compute tolerances
   if (collinearity && (length(res$intermediate$variables) > 2)) {
@@ -197,10 +197,13 @@ regr <- function(formula, data=NULL, conf.level=.95, digits=2,
 
   if (plot) {
     if (length(res$intermediate$variables_namesOnly) == 2) {
-      res$output$plot <- ggplot(res$intermediate$dat.raw,
-                                aes_string(y=res$intermediate$variables_namesOnly[1],
-                                        x=res$intermediate$variables_namesOnly[2])) +
-        geom_point(alpha = pointAlpha) + geom_smooth(method='lm') + theme_bw();
+      res$output$plot <-
+        ggplot2::ggplot(res$intermediate$dat.raw,
+                        ggplot2::aes_string(y=res$intermediate$variables_namesOnly[1],
+                        x=res$intermediate$variables_namesOnly[2])) +
+        ggplot2::geom_point(alpha = pointAlpha) +
+        ggplot2::geom_smooth(method='lm') +
+        ggplot2::theme_bw();
     } else if (length(res$intermediate$variables_namesOnly) == 3) {
 
       if (is.numeric(res$intermediate$dat.raw[, res$intermediate$variables_namesOnly[2]]) &&
@@ -212,7 +215,7 @@ regr <- function(formula, data=NULL, conf.level=.95, digits=2,
 
         predictorMean <- mean(res$intermediate$dat.raw[, predictorName],
                               na.rm=TRUE);
-        predictorSD <- sd(res$intermediate$dat.raw[, predictorName],
+        predictorSD <- stats::sd(res$intermediate$dat.raw[, predictorName],
                           na.rm=TRUE);
         # loPredictorValue <- predictorMean - predictorSD;
         # hiPredictorValue <- predictorMean + predictorSD;
@@ -223,8 +226,8 @@ regr <- function(formula, data=NULL, conf.level=.95, digits=2,
 
         moderatorMean <- mean(res$intermediate$dat.raw[, moderatorName],
                               na.rm=TRUE);
-        moderatorSD <- sd(res$intermediate$dat.raw[, moderatorName],
-                          na.rm=TRUE);
+        moderatorSD <- stats::sd(res$intermediate$dat.raw[, moderatorName],
+                                 na.rm=TRUE);
         loModeratorValue <- moderatorMean - moderatorSD;
         hiModeratorValue <- moderatorMean + moderatorSD;
 
@@ -260,19 +263,20 @@ regr <- function(formula, data=NULL, conf.level=.95, digits=2,
                                    modVal = c("Low", "High"));
         names(moderatorDat)[5] <- res$intermediate$variables_namesOnly[3];
 
-        res$output$plot <- ggplot(res$intermediate$dat.raw,
-                                  aes_string(y=res$intermediate$variables_namesOnly[1],
-                                             x=res$intermediate$variables_namesOnly[2])) +
-          geom_point(alpha = pointAlpha) +
-          geom_smooth(method='lm') +
-          theme_bw() +
-          geom_segment(data = moderatorDat,
-                       aes_string(x = 'x', xend = 'xend',
-                                  y = 'y', yend = 'yend',
-                                  group = res$intermediate$variables_namesOnly[3],
-                                  color = res$intermediate$variables_namesOnly[3]),
-                       size=1) +
-          scale_color_viridis(discrete = TRUE);
+        res$output$plot <-
+          ggplot2::ggplot(res$intermediate$dat.raw,
+                          ggplot2::aes_string(y=res$intermediate$variables_namesOnly[1],
+                                              x=res$intermediate$variables_namesOnly[2])) +
+          ggplot2::geom_point(alpha = pointAlpha) +
+          ggplot2::geom_smooth(method='lm') +
+          ggplot2::theme_bw() +
+          ggplot2::geom_segment(data = moderatorDat,
+                                ggplot2::aes_string(x = 'x', xend = 'xend',
+                                                    y = 'y', yend = 'yend',
+                                                    group = res$intermediate$variables_namesOnly[3],
+                                                    color = res$intermediate$variables_namesOnly[3]),
+                                size=1) +
+          ggplot2::scale_color_viridis_d();
 
       } else if ((is.numeric(res$intermediate$dat.raw[, res$intermediate$variables_namesOnly[2]]) &&
                  (is.factor(res$intermediate$dat.raw[, res$intermediate$variables_namesOnly[3]]))) ||
@@ -286,19 +290,20 @@ regr <- function(formula, data=NULL, conf.level=.95, digits=2,
           predictor <- res$intermediate$variables_namesOnly[3];
           moderator <- res$intermediate$variables_namesOnly[2];
         }
-        res$output$plot <- ggplot(res$intermediate$dat.raw,
-                                  aes_string(y=res$intermediate$variables_namesOnly[1],
-                                             x=predictor)) +
-          geom_point(alpha = pointAlpha) +
-          geom_smooth(method='lm') +
-          theme_bw() +
-          geom_smooth(aes_string(y=res$intermediate$variables_namesOnly[1],
-                                 x=predictor,
-                                 group=moderator,
-                                 color=moderator),
-                      method="lm",
-                      se = FALSE) +
-          scale_color_viridis(discrete = TRUE);
+        res$output$plot <-
+          ggplot2::ggplot(res$intermediate$dat.raw,
+                          ggplot2::aes_string(y=res$intermediate$variables_namesOnly[1],
+                                              x=predictor)) +
+          ggplot2::geom_point(alpha = pointAlpha) +
+          ggplot2::geom_smooth(method='lm') +
+          ggplot2::theme_bw() +
+          ggplot2::geom_smooth(ggplot2::aes_string(y=res$intermediate$variables_namesOnly[1],
+                                                   x=predictor,
+                                                   group=moderator,
+                                                   color=moderator),
+                               method="lm",
+                               se = FALSE) +
+          ggplot2::scale_color_viridis_d();
       }
     } else {
       warning("You requested a plot, but for now plots are ",
@@ -334,10 +339,10 @@ print.regr <- function(x, digits=x$input$digits,
              x$intermediate$summary.raw$fstatistic[2], ", ",
              x$intermediate$summary.raw$fstatistic[3], "] = ",
              round(x$intermediate$summary.raw$fstatistic[1], digits),
-             ", ", ufs::formatPvalue(pf(x$intermediate$summary.raw$fstatistic[1],
-                                        x$intermediate$summary.raw$fstatistic[2],
-                                        x$intermediate$summary.raw$fstatistic[3],
-                                        lower.tail=FALSE), digits=pvalueDigits), "\n"));
+             ", ", ufs::formatPvalue(stats::pf(x$intermediate$summary.raw$fstatistic[1],
+                                               x$intermediate$summary.raw$fstatistic[2],
+                                               x$intermediate$summary.raw$fstatistic[3],
+                                               lower.tail=FALSE), digits=pvalueDigits), "\n"));
   if ("raw" %in% x$input$coefficients) {
     cat("\nRaw regression coefficients (unstandardized beta values, called 'B' in SPSS):\n\n");
     tmpDat <- round(x$output$coef.raw[, 1:5], digits);
@@ -367,12 +372,12 @@ print.regr <- function(x, digits=x$input$digits,
       cat0("  For the raw regression coefficients:\n\n");
       collinearityDat <- data.frame(VIF = x$intermediate$vif.raw,
                                     Tolerance = x$intermediate$tolerance.raw);
-      row.names(collinearityDat) <- paste0(repStr(4), names(x$intermediate$vif.raw));
+      row.names(collinearityDat) <- paste0(ufs::repStr(4), names(x$intermediate$vif.raw));
       print(collinearityDat);
       cat0("\n  For the standardized regression coefficients:\n\n");
       collinearityDat <- data.frame(VIF = x$intermediate$vif.scaled,
                                     Tolerance = x$intermediate$tolerance.scaled);
-      row.names(collinearityDat) <- paste0(repStr(4), names(x$intermediate$vif.raw));
+      row.names(collinearityDat) <- paste0(ufs::repStr(4), names(x$intermediate$vif.raw));
       print(collinearityDat);
     }
   }
@@ -406,7 +411,7 @@ print.regr <- function(x, digits=x$input$digits,
   } else {
     ciMsg <- paste0(ciMsg,
                     " -- I don't know actually, something appears to have gone wrong. ",
-                    "The 'ci.method' argument was set to ", vecTxtQ(x$input$ci.method),
+                    "The 'ci.method' argument was set to ", ufs::vecTxtQ(x$input$ci.method),
                     ".");
   }
 
@@ -424,36 +429,36 @@ print.regr <- function(x, digits=x$input$digits,
 
 ### Function to smoothly pander output from regr function in userfriendlyscience
 pander.regr <- function (x, digits = x$input$digits, pvalueDigits = x$input$pvalueDigits, ...) {
-  pandoc.p(paste0("\n\n#### Regression analysis for formula: ", x$intermediate$formula.as.character));
-  pandoc.p("\n\n##### Significance test of the entire model (all predictors together):\n\n");
-  pandoc.p(paste0("Multiple R-squared: [", round(x$output$rsq.ci[1],
+  pander::pandoc.p(paste0("\n\n#### Regression analysis for formula: ", x$intermediate$formula.as.character));
+  pander::pandoc.p("\n\n##### Significance test of the entire model (all predictors together):\n\n");
+  pander::pandoc.p(paste0("Multiple R-squared: [", round(x$output$rsq.ci[1],
                                                  digits), ", ", round(x$output$rsq.ci[2], digits),
                   "] (point estimate = ", round(x$intermediate$summary.raw$r.squared,
                                                 digits), ", adjusted = ", round(x$intermediate$summary.raw$adj.r.squared,
                                                                                 digits), ")"))
-  pandoc.p(paste0("Test for significance: F[", x$intermediate$summary.raw$fstatistic[2],
+  pander::pandoc.p(paste0("Test for significance: F[", x$intermediate$summary.raw$fstatistic[2],
                   ", ", x$intermediate$summary.raw$fstatistic[3], "] = ",
                   round(x$intermediate$summary.raw$fstatistic[1], digits),
-                  ", ", formatPvalue(pf(x$intermediate$summary.raw$fstatistic[1],
-                                        x$intermediate$summary.raw$fstatistic[2], x$intermediate$summary.raw$fstatistic[3],
-                                        lower.tail = FALSE), digits = pvalueDigits), "\n"));
+                  ", ", ufs::formatPvalue(stats::pf(x$intermediate$summary.raw$fstatistic[1],
+                                                    x$intermediate$summary.raw$fstatistic[2], x$intermediate$summary.raw$fstatistic[3],
+                                                    lower.tail = FALSE), digits = pvalueDigits), "\n"));
 
   if ("raw" %in% x$input$coefficients) {
-    pandoc.p("\n\n##### Raw regression coefficients (unstandardized beta values, called 'B' in SPSS):\n\n");
+    pander::pandoc.p("\n\n##### Raw regression coefficients (unstandardized beta values, called 'B' in SPSS):\n\n");
     tmpDat <- round(x$output$coef.raw[, 1:5], digits);
     tmpDat[[1]] <- paste0("[", tmpDat[[1]], "; ", tmpDat[[2]], "]");
     tmpDat[[2]] <- NULL;
     names(tmpDat)[1] <- paste0(x$input$conf.level * 100, "% conf. int.");
-    tmpDat$p <- formatPvalue(x$output$coef.raw$p, digits = pvalueDigits, includeP = FALSE);
-    pander(tmpDat, missing="");
+    tmpDat$p <- ufs::formatPvalue(x$output$coef.raw$p, digits = pvalueDigits, includeP = FALSE);
+    pander::pander(tmpDat, missing="");
   }
   if ("scaled" %in% x$input$coefficients) {
-    pandoc.p("\n\n##### Scaled regression coefficients (standardized beta values, called 'Beta' in SPSS):\n\n");
+    pander::pandoc.p("\n\n##### Scaled regression coefficients (standardized beta values, called 'Beta' in SPSS):\n\n");
     tmpDat <- round(x$output$coef.scaled[, 1:5], digits);
     tmpDat[[1]] <- paste0("[", tmpDat[[1]], "; ", tmpDat[[2]], "]");
     tmpDat[[2]] <- NULL;
     names(tmpDat)[1] <- paste0(x$input$conf.level * 100, "% conf. int.");
-    tmpDat$p <- formatPvalue(x$output$coef.scaled$p, digits = pvalueDigits, includeP = FALSE);
-    pander(tmpDat, missing="");
+    tmpDat$p <- ufs::formatPvalue(x$output$coef.scaled$p, digits = pvalueDigits, includeP = FALSE);
+    pander::pander(tmpDat, missing="");
   }
 }
