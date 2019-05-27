@@ -84,8 +84,8 @@ remain silent.}
 
 \item{na.print}{How to print missing values.}
 
-\item{\dots}{Any additional arguments are passed to the `print` or
-`pander` function.}
+\item{\dots}{Any additional arguments are passed to the \code{print} or
+\code{pander} function.}
 
 \item{headerStyle}{The header pre- and suffix to use when pandering the
 result (useful when working with Markdown).}
@@ -132,6 +132,6 @@ doi:10.1037/1082-989X.9.2.164
 \author{
 Gjalt-Jorn Peters
 
-Maintainer: Gjalt-Jorn Peters <gjalt-jorn@userfriendlyscience.com>
+Maintainer: Gjalt-Jorn Peters \href{mailto:gjalt-jorn@userfriendlyscience.com}{gjalt-jorn@userfriendlyscience.com}
 }
 \keyword{utilities}

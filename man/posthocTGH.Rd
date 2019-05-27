@@ -31,7 +31,7 @@ standards (i.e. replace all values lower than .001 with '<.001'). This only
 applies to the printing of the object, not to the way the p values are
 stored in the object.}
 
-\item{\dots}{Any additional arguments are passed on to the `print` function.}
+\item{\dots}{Any additional arguments are passed on to the \code{print} function.}
 }
 \value{
 A list of three elements: \item{input}{List with input arguments}
@@ -74,6 +74,6 @@ posthocTGH(y=ChickWeight$weight, x=ChickWeight$Diet);
 Gjalt-Jorn Peters (Open University of the Netherlands) & Jeff Bagget
 (University of Wisconsin - La Crosse)
 
-Maintainer: Gjalt-Jorn Peters <gjalt-jorn@userfriendlyscience.com>
+Maintainer: Gjalt-Jorn Peters \href{mailto:gjalt-jorn@userfriendlyscience.com}{gjalt-jorn@userfriendlyscience.com}
 }
 \keyword{utilities}

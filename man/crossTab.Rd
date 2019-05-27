@@ -34,10 +34,10 @@ the result.}
 in the Chi Square p value in the result.}
 
 \item{...}{Extra arguments to \code{crossTab} are passed on to
-[ufs::confIntV()].}
+\code{\link[ufs:confIntV]{ufs::confIntV()}}.}
 }
 \value{
-The results of [ufs::confIntV()], but also prints the cross
+The results of \code{\link[ufs:confIntV]{ufs::confIntV()}}, but also prints the cross
 table and the chi square test results.
 }
 \description{

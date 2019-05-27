@@ -122,10 +122,10 @@ fanova <- function(data,
       x <- data[, between];
       res$intermediate$formula <- paste(y, "~", between);
       res$intermediate$secondaryObject <-
-        userfriendlyscience::oneway(y = y,
-                                    x = x,
-                                    plot=plot,
-                                    levene=levene);
+        oneway(y = y,
+               x = x,
+               plot=plot,
+               levene=levene);
       ### Get plot and store it here
       if (plot)
         res$output$plot <-
@@ -150,7 +150,7 @@ fanova <- function(data,
       ### Make a plot if we want one
       if (plot) {
         if (is.null(covar) && (length(between) == 2)) {
-          res$output$plot <- userfriendlyscience::dlvPlot(data,
+          res$output$plot <- dlvPlot(data,
                                      y=y,
                                      x=between[1],
                                      z=between[2])$plot +
@@ -234,7 +234,7 @@ fanova <- function(data,
                 "oneway repeated measures anovas.");
       } else {
         res$output$plot <-
-          userfriendlyscience::dlvPlot(longDat,
+          dlvPlot(longDat,
                   x='time',
                   y='y',
                   z=between)$plot +

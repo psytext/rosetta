@@ -69,7 +69,7 @@ here. If not specified, the default R file selection dialogue is shown.
 eventually be phased out.}
 
 \item{errorMessage}{The error message that is shown if the file does not
-exist or does not have the right extension; "[defaultErrorMessage]" is
+exist or does not have the right extension; "\link{defaultErrorMessage}" is
 replaced with a default error message (and can be included in longer
 messages).}
 

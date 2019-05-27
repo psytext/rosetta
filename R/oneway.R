@@ -224,9 +224,9 @@ oneway <- function(y, x, posthoc=NULL, means=FALSE, fullDescribe=FALSE,
   if (plot) {
     res$intermediate$dat <- data.frame(x, y);
     names(res$intermediate$dat) <- c(res$input$x.name, res$input$y.name);
-    res$output$plot <- userfriendlyscience::dlvPlot(res$intermediate$dat,
-                                                    x=res$input$x.name,
-                                                    y=res$input$y.name)$plot +
+    res$output$plot <- dlvPlot(res$intermediate$dat,
+                               x=res$input$x.name,
+                               y=res$input$y.name)$plot +
       ggplot2::ggtitle(paste0(res$input$x.name, " and ",
                      res$input$y.name));
   }

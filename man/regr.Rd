@@ -77,6 +77,6 @@ regr(Orange$age ~ Orange$circumference, pvalueDigits=18);
 \author{
 Gjalt-Jorn Peters
 
-Maintainer: Gjalt-Jorn Peters <gjalt-jorn@userfriendlyscience.com>
+Maintainer: Gjalt-Jorn Peters \href{mailto:gjalt-jorn@userfriendlyscience.com}{gjalt-jorn@userfriendlyscience.com}
 }
 \keyword{utilities}

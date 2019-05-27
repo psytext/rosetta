@@ -43,13 +43,13 @@ conjunction with digits to determine format of results).}
 
 \item{plotTheme}{The ggplot2 theme to use.}
 
-\item{x}{The `freq` or `frequencies` object to print.}
+\item{x}{The \code{freq} or \code{frequencies} object to print.}
 
-\item{\dots}{For `frequencies`, the variables of which to provide
-frequencies; for the `print` methods, additional arguments are passed on
-to the `print` function.}
+\item{\dots}{For \code{frequencies}, the variables of which to provide
+frequencies; for the \code{print} methods, additional arguments are passed on
+to the \code{print} function.}
 
-\item{prefix}{The prefix to use when printing `frequencies`, to easily prepend
+\item{prefix}{The prefix to use when printing \code{frequencies}, to easily prepend
 Markdown headers.}
 }
 \value{
