@@ -28,6 +28,7 @@ URL: https://rosetta.opens.science
 BugReports: https://github.com/psytext/rosetta
 Encoding: UTF-8
 LazyData: true
+Published: 2019
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
 Depends: R (>= 3.0.0)

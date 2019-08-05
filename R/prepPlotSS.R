@@ -1,4 +1,4 @@
-#' Makes simple slope plots 
+#' Makes simple slope plots
 #'
 #' @param data data frame containg the variables of the model
 #' @param xvar predictor variable name
@@ -18,7 +18,7 @@
 
 prepPlotSS <- function(data,xvar,yvar,mod, mvars, parEst, vdichotomous,
                               modLevels, predLevels = NULL, xquant, yquant, path = NULL) {
-  
+
 
     if (vdichotomous) {
        modquant <- c(0,1)
@@ -37,66 +37,66 @@ prepPlotSS <- function(data,xvar,yvar,mod, mvars, parEst, vdichotomous,
           inter <- "iy"
           modmed <- "modmedm"
       }
-  
+
   ind <- subset(parEst, grepl("ind", parEst$label))[,c("ci.lower","est","ci.upper")]
   vw <- subset(parEst, grepl(vorw, parEst$label))[,c("ci.lower","est","ci.upper")]
   int <- subset(parEst, grepl(inter, parEst$label))[,c("ci.lower","est","ci.upper")]
   mm <- subset(parEst, grepl(modmed, parEst$label))[,c("ci.lower","est","ci.upper")]
-  
+
   bw <- subset(parEst, grepl("bw", parEst$label))[,c("ci.lower","est","ci.upper")]
   gw <- subset(parEst, grepl("gw", parEst$label))[,c("ci.lower","est","ci.upper")]
-  
+
   N <- dim(data)[1]
-  
+
   if (vorw == "v") bw <- (matrix(as.numeric(vw), nrow=length(mvars), ncol = 3, byrow = TRUE ))
-  
-  
+
+
   # initialize data for mediated simple slopes
-  
+
   plotDat2 <- data.frame(yv=numeric(), xv=numeric(), mov=numeric(),mev=factor())
   xv <-  c(xquant[1],xquant[1],xquant[2],xquant[2])
   mov <- c(modquant,modquant)
- 
-  # loop over mediators 
-  
+
+  # loop over mediators
+
   for (i in seq_along(mvars)) {
 
-      d1 <-  matrix(as.numeric(ind[i,]), nrow = 2, ncol=3, byrow = TRUE)  
+      d1 <-  matrix(as.numeric(ind[i,]), nrow = 2, ncol=3, byrow = TRUE)
       d2 <-  (modquant %o% as.numeric(mm[i,]))
       yIom2 <- d1+ d2
-     
+
     pred1 <-  as.numeric(modquant) %o%  as.numeric(bw[i,])  + yIom2*xquant[1]
     pred2 <-  as.numeric(modquant) %o%  as.numeric(bw[i,])  + yIom2*xquant[2]
     pred <- rbind(pred1, pred2)
     plotDat1 <- data.frame(cbind(pred, xv = xv))
-    plotDat1$mov <- as.factor(round(mov,1))                      
+    plotDat1$mov <- as.factor(round(mov,1))
     plotDat1$mev <- as.factor(rep(mvars[i],4))
-    
+
     plotDat2 <- rbind(plotDat2,plotDat1)
-    
+
      }  # loop mvars
-  
+
 
     names(plotDat2) <- c("lwr",yvar,"upr", xvar, mod, "mediator")
     ymin <- min(plotDat2$yvar, plotDat2$lwr,plotDat2$upr, yquant)
     ymax <- max(plotDat2$yvar, plotDat2$lwr,plotDat2$upr, yquant)
-    if (!is.null(predLevels)) { 
+    if (!is.null(predLevels)) {
       plotDat2[,xvar] <- as.factor(plotDat2[,xvar])
       levels(plotDat2[,xvar]) <- predLevels
     }
-    
+
     plot_simpleSlopes <- ggplot(plotDat2, aes_string(x=xvar,y=yvar,group= mod, colour=mod)) +
        geom_point() + geom_line() +
-       geom_ribbon(aes(ymin=lwr, ymax=upr),alpha=.3, linetype=0) +
+       geom_ribbon(aes(ymin=plotDat2$lwr, ymax=plotDat2$upr),alpha=.3, linetype=0) +
        ylim(ymin,ymax) +
        theme(plot.title = ggplot2::element_text(lineheight=.4, face="italic")) +
        ggtitle(paste0("Simple slopes in ", path , " path for indirect effect ")) +
-       scale_colour_discrete(name  = mod, labels=legendLabel) 
-       
-    plot_simpleSlopes <- plot_simpleSlopes + facet_grid(rows=vars(mediator))
-  
+       scale_colour_discrete(name  = mod, labels=legendLabel)
+
+    plot_simpleSlopes <- plot_simpleSlopes + facet_grid(rows=vars(plotDat2$mediator))
+
     print(plot_simpleSlopes)
-  
+
   return()
 
 } # end function
