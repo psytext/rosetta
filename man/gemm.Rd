@@ -36,9 +36,7 @@ gemm object
 Analyze moderated mediation model using SEM
 }
 \examples{
-data("gemmDat")
-res <- gemm(dat = gemmDat, xvar="x1", mvars= c("m1","m2","m3"),
-       yvar = "y1", xmmod = "mod1",  cmvars =c("c1","c2"), nboot=500)
+data("cpbExample")
+       res <- gemm(dat = cpbExample, xvar="procJustice", mvars= c("cynicism","trust"),
 print(res)
-plotSS(res) 
 }

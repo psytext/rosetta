@@ -14,14 +14,14 @@
 #' @param nboot number of bootstrap samples
 #'
 #' @return gemm object
-#' @export
+#' @export gemm
 #'
 #' @examples
 #' data("cpbExample")
 #'        res <- gemm(dat = cpbExample, xvar="procJustice", mvars= c("cynicism","trust"),
 #`        yvar = "CPB", nboot=500)
 #' print(res)
-                 gemm <- function(data = NULL,
+          gemm <- function(data = NULL,
                                   xvar,
                                   mvars,
                                   yvar,
