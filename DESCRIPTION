@@ -41,5 +41,9 @@ Imports: car (>= 3.0.2),
          plyr (>= 1.8.4),
          psych (>= 1.8.4),
          rio (>= 0.5.10),
-         ufs (>= 0.1.0)
+         ufs (>= 0.1.0),
+         stringr (>= 1.4.0),
+         lavaan,
+         graphics,
+         stats
          
