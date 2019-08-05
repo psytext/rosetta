@@ -19,7 +19,7 @@
 #' @examples
 #' data("cpbExample")
 #'        res <- gemm(dat = cpbExample, xvar="procJustice", mvars= c("cynicism","trust"),
-#`        yvar = "CPB", nboot=500)
+#'        yvar = "CPB", nboot=500)
 #' print(res)
           gemm <- function(data = NULL,
                                   xvar,
