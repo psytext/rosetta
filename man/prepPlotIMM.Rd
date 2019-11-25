@@ -4,8 +4,17 @@
 \alias{prepPlotIMM}
 \title{Makes Index of Mediated Moderated plots}
 \usage{
-prepPlotIMM(data, xvar, yvar, mod, mvars, parEst, vdichotomous, modLevels,
-  path = NULL)
+prepPlotIMM(
+  data,
+  xvar,
+  yvar,
+  mod,
+  mvars,
+  parEst,
+  vdichotomous,
+  modLevels,
+  path = NULL
+)
 }
 \arguments{
 \item{data}{data frame containg the variables of the model}

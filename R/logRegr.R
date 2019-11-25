@@ -376,6 +376,8 @@ logRegr <- function(formula, data=NULL, conf.level=.95, digits=2,
 }
 
 #' @method print logRegr
+#' @param x logRegr object
+#' @param ... other print parameters
 #' @rdname logRegr
 #' @export
 print.logRegr <- function(x, digits=x$input$digits,

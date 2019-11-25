@@ -8,14 +8,11 @@
 \alias{pander.crossTab}
 \title{Cross tables}
 \usage{
-crossTab(x, y = NULL, conf.level = 0.95, digits = 2,
-  pValueDigits = 3, ...)
+crossTab(x, y = NULL, conf.level = 0.95, digits = 2, pValueDigits = 3, ...)
 
-\method{print}{crossTab}(x, digits = x$input$digits,
-  pValueDigits = x$input$pValueDigits, ...)
+\method{print}{crossTab}(x, digits = x$input$digits, pValueDigits = x$input$pValueDigits, ...)
 
-\method{pander}{crossTab}(x, digits = x$input$digits,
-  pValueDigits = x$input$pValueDigits, ...)
+\method{pander}{crossTab}(x, digits = x$input$digits, pValueDigits = x$input$pValueDigits, ...)
 }
 \arguments{
 \item{x}{Either a crosstable to analyse, or one of two vectors to use to

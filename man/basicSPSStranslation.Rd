@@ -12,16 +12,33 @@
 \alias{useAll}
 \title{Basic SPSS translation functions}
 \usage{
-exportToSPSS(dat, savfile = NULL, datafile = NULL, codefile = NULL,
-  fileEncoding = "UTF-8", newLinesInString = " |n| ")
+exportToSPSS(
+  dat,
+  savfile = NULL,
+  datafile = NULL,
+  codefile = NULL,
+  fileEncoding = "UTF-8",
+  newLinesInString = " |n| "
+)
 
-filterBy(dat, expression, replaceOriginalDataframe = TRUE,
-  envir = parent.frame())
+filterBy(
+  dat,
+  expression,
+  replaceOriginalDataframe = TRUE,
+  envir = parent.frame()
+)
 
-getData(filename = NULL, file = NULL,
-  errorMessage = "[defaultErrorMessage]", applyRioLabels = TRUE,
-  use.value.labels = FALSE, to.data.frame = TRUE,
-  stringsAsFactors = FALSE, silent = FALSE, ...)
+getData(
+  filename = NULL,
+  file = NULL,
+  errorMessage = "[defaultErrorMessage]",
+  applyRioLabels = TRUE,
+  use.value.labels = FALSE,
+  to.data.frame = TRUE,
+  stringsAsFactors = FALSE,
+  silent = FALSE,
+  ...
+)
 
 getDat(..., dfName = "dat", backup = TRUE)
 

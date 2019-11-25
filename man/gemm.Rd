@@ -4,9 +4,18 @@
 \alias{gemm}
 \title{Analyze moderated mediation model using SEM}
 \usage{
-gemm(data = NULL, xvar, mvars, yvar, xmmod = NULL, mymod = NULL,
-  cmvars = NULL, cyvars = NULL, estMethod = "bootstrap",
-  nboot = 1000)
+gemm(
+  data = NULL,
+  xvar,
+  mvars,
+  yvar,
+  xmmod = NULL,
+  mymod = NULL,
+  cmvars = NULL,
+  cyvars = NULL,
+  estMethod = "bootstrap",
+  nboot = 1000
+)
 }
 \arguments{
 \item{data}{data frame}

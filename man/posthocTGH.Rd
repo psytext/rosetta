@@ -5,9 +5,15 @@
 \alias{print.posthocTGH}
 \title{posthocTGH}
 \usage{
-posthocTGH(y, x, method = c("games-howell", "tukey"),
-  conf.level = 0.95, digits = 2, p.adjust = "none",
-  formatPvalue = TRUE)
+posthocTGH(
+  y,
+  x,
+  method = c("games-howell", "tukey"),
+  conf.level = 0.95,
+  digits = 2,
+  p.adjust = "none",
+  formatPvalue = TRUE
+)
 
 \method{print}{posthocTGH}(x, digits = x$input$digits, ...)
 }
