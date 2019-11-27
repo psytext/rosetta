@@ -4,20 +4,8 @@
 \alias{prepPlotSS}
 \title{Makes simple slope plots}
 \usage{
-prepPlotSS(
-  data,
-  xvar,
-  yvar,
-  mod,
-  mvars,
-  parEst,
-  vdichotomous,
-  modLevels,
-  predLevels = NULL,
-  xquant,
-  yquant,
-  path = NULL
-)
+prepPlotSS(data, xvar, yvar, mod, mvars, parEst, vdichotomous, modLevels,
+  predLevels = NULL, xquant, yquant, path = NULL)
 }
 \arguments{
 \item{data}{data frame containg the variables of the model}

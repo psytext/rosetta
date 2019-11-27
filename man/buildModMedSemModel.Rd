@@ -4,15 +4,8 @@
 \alias{buildModMedSemModel}
 \title{Builds model for moderated mediation anaysis using SEM}
 \usage{
-buildModMedSemModel(
-  xvar,
-  mvars,
-  yvar,
-  xmmod = NULL,
-  mymod = NULL,
-  cmvars = NULL,
-  cyvars = NULL
-)
+buildModMedSemModel(xvar, mvars, yvar, xmmod = NULL, mymod = NULL,
+  cmvars = NULL, cyvars = NULL)
 }
 \arguments{
 \item{xvar}{independent variable (predictor)}

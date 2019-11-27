@@ -8,33 +8,15 @@
 \usage{
 dlvTheme(base_size = 11, base_family = "", ...)
 
-dlvPlot(
-  dat,
-  x = NULL,
-  y,
-  z = NULL,
-  conf.level = 0.95,
-  jitter = "FALSE",
-  binnedDots = TRUE,
-  binwidth = NULL,
-  error = "lines",
-  dotsize = "density",
-  singleColor = "black",
+dlvPlot(dat, x = NULL, y, z = NULL, conf.level = 0.95,
+  jitter = "FALSE", binnedDots = TRUE, binwidth = NULL,
+  error = "lines", dotsize = "density", singleColor = "black",
   comparisonColors = RColorBrewer::brewer.pal(8, "Set1"),
-  densityDotBaseSize = 3,
-  normalDotBaseSize = 1,
-  violinAlpha = 0.2,
-  dotAlpha = 0.4,
-  lineAlpha = 1,
-  connectingLineAlpha = 1,
-  meanDotSize = 5,
-  posDodge = 0.2,
-  errorType = "both",
-  outputFile = NULL,
-  outputWidth = 10,
-  outputHeight = 10,
-  ggsaveParams = list(units = "cm", dpi = 300, type = "cairo")
-)
+  densityDotBaseSize = 3, normalDotBaseSize = 1, violinAlpha = 0.2,
+  dotAlpha = 0.4, lineAlpha = 1, connectingLineAlpha = 1,
+  meanDotSize = 5, posDodge = 0.2, errorType = "both",
+  outputFile = NULL, outputWidth = 10, outputHeight = 10,
+  ggsaveParams = list(units = "cm", dpi = 300, type = "cairo"))
 
 \method{print}{dlvPlot}(x, ...)
 }

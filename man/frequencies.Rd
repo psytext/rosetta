@@ -10,35 +10,16 @@
 \alias{pander.frequencies}
 \title{Frequency tables}
 \usage{
-freq(
-  vector,
-  digits = 1,
-  nsmall = 1,
-  transposed = FALSE,
-  round = 1,
-  plot = FALSE,
-  plotTheme = ggplot2::theme_bw()
-)
+freq(vector, digits = 1, nsmall = 1, transposed = FALSE, round = 1,
+  plot = FALSE, plotTheme = ggplot2::theme_bw())
 
-\method{print}{freq}(
-  x,
-  digits = x$input$digits,
-  nsmall = x$input$nsmall,
-  transposed = x$input$transposed,
-  ...
-)
+\method{print}{freq}(x, digits = x$input$digits,
+  nsmall = x$input$nsmall, transposed = x$input$transposed, ...)
 
 \method{pander}{freq}(x, ...)
 
-frequencies(
-  ...,
-  digits = 1,
-  nsmall = 1,
-  transposed = FALSE,
-  round = 1,
-  plot = FALSE,
-  plotTheme = ggplot2::theme_bw()
-)
+frequencies(..., digits = 1, nsmall = 1, transposed = FALSE,
+  round = 1, plot = FALSE, plotTheme = ggplot2::theme_bw())
 
 \method{print}{frequencies}(x, ...)
 

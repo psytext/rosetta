@@ -5,31 +5,18 @@
 \alias{print.logRegr}
 \title{Userfriendly wrapper to do logistic regression in R}
 \usage{
-logRegr(
-  formula,
-  data = NULL,
-  conf.level = 0.95,
-  digits = 2,
-  pvalueDigits = 3,
-  crossTabs = TRUE,
-  plot = FALSE,
-  collinearity = FALSE,
-  env = parent.frame(),
-  predictionColor = viridis::viridis(3)[3],
-  predictionAlpha = 0.5,
-  predictionSize = 2,
-  dataColor = viridis::viridis(3)[1],
-  dataAlpha = 0.33,
-  dataSize = 2,
-  observedMeansColor = viridis::viridis(3)[2],
-  binObservedMeans = 7,
-  observedMeansSize = 2,
-  observedMeansWidth = NULL,
-  observedMeansAlpha = 0.5,
-  theme = ggplot2::theme_bw()
-)
+logRegr(formula, data = NULL, conf.level = 0.95, digits = 2,
+  pvalueDigits = 3, crossTabs = TRUE, plot = FALSE,
+  collinearity = FALSE, env = parent.frame(),
+  predictionColor = viridis::viridis(3)[3], predictionAlpha = 0.5,
+  predictionSize = 2, dataColor = viridis::viridis(3)[1],
+  dataAlpha = 0.33, dataSize = 2,
+  observedMeansColor = viridis::viridis(3)[2], binObservedMeans = 7,
+  observedMeansSize = 2, observedMeansWidth = NULL,
+  observedMeansAlpha = 0.5, theme = ggplot2::theme_bw())
 
-\method{print}{logRegr}(x, digits = x$input$digits, pvalueDigits = x$input$pvalueDigits, ...)
+\method{print}{logRegr}(x, digits = x$input$digits,
+  pvalueDigits = x$input$pvalueDigits, ...)
 }
 \arguments{
 \item{formula}{The formula, specified in the same way as for

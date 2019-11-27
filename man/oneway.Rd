@@ -6,43 +6,18 @@
 \alias{pander.oneway}
 \title{oneway}
 \usage{
-oneway(
-  y,
-  x,
-  posthoc = NULL,
-  means = FALSE,
-  fullDescribe = FALSE,
-  levene = FALSE,
-  plot = FALSE,
-  digits = 2,
-  omegasq = TRUE,
-  etasq = TRUE,
-  corrections = FALSE,
-  pvalueDigits = 3,
-  t = FALSE,
-  conf.level = 0.95,
-  posthocLetters = FALSE,
-  posthocLetterAlpha = 0.05,
-  overrideVarNames = NULL,
-  silent = FALSE
-)
+oneway(y, x, posthoc = NULL, means = FALSE, fullDescribe = FALSE,
+  levene = FALSE, plot = FALSE, digits = 2, omegasq = TRUE,
+  etasq = TRUE, corrections = FALSE, pvalueDigits = 3, t = FALSE,
+  conf.level = 0.95, posthocLetters = FALSE,
+  posthocLetterAlpha = 0.05, overrideVarNames = NULL, silent = FALSE)
 
-\method{print}{oneway}(
-  x,
-  digits = x$input$digits,
-  pvalueDigits = x$input$pvalueDigits,
-  na.print = "",
-  ...
-)
+\method{print}{oneway}(x, digits = x$input$digits,
+  pvalueDigits = x$input$pvalueDigits, na.print = "", ...)
 
-\method{pander}{oneway}(
-  x,
-  digits = x$input$digits,
-  pvalueDigits = x$input$pvalueDigits,
-  headerStyle = "**",
-  na.print = "",
-  ...
-)
+\method{pander}{oneway}(x, digits = x$input$digits,
+  pvalueDigits = x$input$pvalueDigits, headerStyle = "**",
+  na.print = "", ...)
 }
 \arguments{
 \item{y}{y has to be a numeric vector.}

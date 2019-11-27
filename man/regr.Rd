@@ -4,21 +4,11 @@
 \alias{regr}
 \title{regr: a simple regression analysis wrapper}
 \usage{
-regr(
-  formula,
-  data = NULL,
-  conf.level = 0.95,
-  digits = 2,
-  pvalueDigits = 3,
-  coefficients = c("raw", "scaled"),
-  plot = FALSE,
-  pointAlpha = 0.5,
-  collinearity = FALSE,
-  influential = FALSE,
+regr(formula, data = NULL, conf.level = 0.95, digits = 2,
+  pvalueDigits = 3, coefficients = c("raw", "scaled"), plot = FALSE,
+  pointAlpha = 0.5, collinearity = FALSE, influential = FALSE,
   ci.method = c("widest", "r.con", "olkinfinn"),
-  ci.method.note = FALSE,
-  env = parent.frame()
-)
+  ci.method.note = FALSE, env = parent.frame())
 }
 \arguments{
 \item{formula}{The formula of the regression analysis, of the form \code{y ~

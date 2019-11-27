@@ -4,16 +4,8 @@
 \alias{fanova}
 \title{Flexible anova}
 \usage{
-fanova(
-  data,
-  y,
-  between = NULL,
-  covar = NULL,
-  plot = FALSE,
-  levene = FALSE,
-  digits = 2,
-  contrast = NULL
-)
+fanova(data, y, between = NULL, covar = NULL, plot = FALSE,
+  levene = FALSE, digits = 2, contrast = NULL)
 }
 \arguments{
 \item{data}{The dataset containing the variables to analyse.}

@@ -1,6 +1,6 @@
 Package: rosetta
 Title: Parallel Use of Statistical Packages in Teaching
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: c(
     person(given = "Gjalt-Jorn",
            family = "Peters",
